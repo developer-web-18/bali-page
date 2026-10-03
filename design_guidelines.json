@@ -1,0 +1,332 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project_name": "FollowFoots Vacation - Bali Luxury Destination Landing Page",
+  "app_type": "landing_page",
+  "theme_strategy": "light_mode_luxury_tropical",
+  "archetype": "ORGANIC & LUXURY TROPICAL FUSION (Archetype 1 + 5: Crisp Pearl White base, Deep Oceanic Navy typography, Lush Tropical Teal/Emerald accents, Warm Radiant Gold/Ochre CTAs)",
+  "context": "Lead generation destination landing page targeted at high-intent travelers from Google Ads and Meta Ads, requiring instant emotional luxury connection, high credibility, frictionless inquiry capture, and Awwwards-level craft.",
+  "colors": {
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#FFFFFF",
+        "on_bg": "#0B1D3A",
+        "on_bg_muted": "#4B5E78",
+        "roles": {
+          "link": "#008B8B",
+          "error": "#DC2626",
+          "success": "#059669",
+          "brand_accent": "#008080"
+        }
+      },
+      {
+        "name": "panel",
+        "kind": "solid",
+        "bg": "#F4F8FA",
+        "on_bg": "#0B1D3A",
+        "on_bg_muted": "#52687F",
+        "roles": {
+          "link": "#007A7A",
+          "error": "#DC2626",
+          "success": "#059669"
+        }
+      },
+      {
+        "name": "panel_white_card",
+        "kind": "solid",
+        "bg": "#FFFFFF",
+        "on_bg": "#0B1D3A",
+        "on_bg_muted": "#4B5E78",
+        "roles": {
+          "border": "#E2EBF0",
+          "highlight": "#D97706"
+        }
+      },
+      {
+        "name": "soft_blue_section",
+        "kind": "solid",
+        "bg": "#EDF5FA",
+        "on_bg": "#0A1930",
+        "on_bg_muted": "#3D536B",
+        "roles": {
+          "link": "#007070",
+          "badge_bg": "#D9EEF7",
+          "badge_text": "#0A3D54"
+        }
+      },
+      {
+        "name": "inverse_dark_navy",
+        "kind": "solid",
+        "bg": "#081326",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#94A3B8",
+        "roles": {
+          "link": "#2DD4BF",
+          "accent_gold": "#F59E0B",
+          "error": "#F87171",
+          "success": "#34D399"
+        }
+      },
+      {
+        "name": "hero",
+        "kind": "image",
+        "contrast_against": "#0A192F",
+        "guarantee": "scrim: linear-gradient(180deg, rgba(7, 20, 42, 0.72) 0%, rgba(7, 20, 42, 0.45) 50%, rgba(7, 20, 42, 0.85) 100%)",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#E0E8F0",
+        "roles": {
+          "badge_text": "#FDE68A",
+          "link": "#5EEAD4",
+          "error": "#FCA5A5",
+          "success": "#6EE7B7"
+        }
+      },
+      {
+        "name": "sticky_header_glass",
+        "kind": "glass",
+        "contrast_against": "#FFFFFF",
+        "guarantee": "glass: backdrop-blur-xl backdrop-saturate-150 bg-white/85 border-b border-[#0B1D3A]/10 shadow-sm",
+        "on_bg": "#0B1D3A",
+        "on_bg_muted": "#4B5E78",
+        "roles": {
+          "link": "#008080",
+          "phone_highlight": "#0B1D3A"
+        }
+      },
+      {
+        "name": "lead_form_container",
+        "kind": "solid",
+        "bg": "#FFFFFF",
+        "on_bg": "#0B1D3A",
+        "on_bg_muted": "#4B5E78",
+        "roles": {
+          "field_border": "#CBD5E1",
+          "field_focus_ring": "#008B8B",
+          "error": "#DC2626",
+          "success": "#059669"
+        }
+      },
+      {
+        "name": "trust_pill_badge",
+        "kind": "solid",
+        "bg": "#E6F4F1",
+        "on_bg": "#005959",
+        "on_bg_muted": "#007A7A"
+      }
+    ],
+    "brand_palette": {
+      "base_white": "#FFFFFF",
+      "navy_primary": "#0B1D3A",
+      "navy_dark": "#07142A",
+      "navy_light": "#1B335A",
+      "teal_tropical": "#008B8B",
+      "teal_emerald": "#047857",
+      "teal_pale": "#E6F4F1",
+      "soft_blue_bg": "#EDF5FA",
+      "soft_blue_subtle": "#F4F8FA",
+      "gold_primary_cta": "#D97706",
+      "gold_hover": "#B45309",
+      "gold_glow": "#F59E0B",
+      "gold_text": "#78350F"
+    },
+    "accent": "#D97706",
+    "on_accent": "#FFFFFF"
+  },
+  "typography": {
+    "font_family_heading": "Lora Variable, Playfair Display Variable, Georgia, serif",
+    "font_family_sans": "Plus Jakarta Sans Variable, Outfit Variable, system-ui, sans-serif",
+    "font_family_mono": "JetBrains Mono Variable, monospace",
+    "import_declaration": "@import \"@fontsource-variable/lora\";\n@import \"@fontsource-variable/plus-jakarta-sans\";\n@import \"@fontsource-variable/jetbrains-mono\";",
+    "scale_px": {
+      "display": 58,
+      "h1": 46,
+      "h2": 34,
+      "h3": 24,
+      "h4": 20,
+      "body": 16,
+      "caption": 14
+    },
+    "rules": {
+      "headings": "font-serif tracking-tight font-medium sm:font-semibold text-[#0B1D3A]",
+      "hero_h1": "text-4xl sm:text-5xl lg:text-[54px] leading-[1.1] tracking-tight font-serif",
+      "section_h2": "text-2xl sm:text-3xl lg:text-4xl font-serif tracking-tight text-[#0B1D3A]",
+      "subheadings": "text-lg sm:text-xl font-sans text-[#4B5E78] leading-relaxed",
+      "eyebrow_badge": "uppercase text-xs font-mono font-semibold tracking-[0.2em] text-[#008B8B]",
+      "body_copy": "text-base font-sans text-[#4B5E78] leading-relaxed",
+      "form_label": "text-sm font-sans font-semibold text-[#0B1D3A] tracking-normal",
+      "max_content_width": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 (1200px - 1280px)"
+    }
+  },
+  "entry_surfaces": {
+    "/": "split kinetic hero — immersive tropical Bali imagery with masked line-by-line reveal + trust highlights left, high-converting luxury enquiry card right, followed by marquee trust strip"
+  },
+  "media": {
+    "brand_logo": {
+      "description": "FollowFoots Vacation playful blue footprint logo with tropical vacation typography",
+      "svg_spec": "Blue footprint emblem vector with vibrant turquoise/cyan path elements and deep navy FollowFoots brand logotype"
+    },
+    "image_urls": [
+      {
+        "category": "hero_background_and_cards",
+        "description": "Pura Ulun Danu Bratan temple on lake reflecting in Bali golden hour",
+        "url": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwyfHxiYWxpJTIwdGVtcGxlJTIwdHJvcGljYWwlMjBvY2VhbnxlbnwwfHx8fDE3OTA3OTMxMjJ8MA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "hero_ambient_temple",
+        "description": "Iconic Bali temple pagoda with tropical morning mountains and lake",
+        "url": "https://images.unsplash.com/photo-1711609110590-5ad5c4599e56?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwzfHxiYWxpJTIwdGVtcGxlJTIwdHJvcGljYWwlMjBvY2VhbnxlbnwwfHx8fDE3OTA3OTMxMjJ8MA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "bali_nature_terrace",
+        "description": "Lush emerald Tegallalang Ubud Bali rice terraces with tropical palm trees",
+        "url": "https://images.unsplash.com/photo-1555400038-63f5ba517a47?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwxfHxiYWxpJTIwcmljZSUyMHRlcnJhY2UlMjB1YnVkfGVufDB8fHx8MTc5MDc5MzEyMnww&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "bali_luxury_villa_pool",
+        "description": "Private infinity pool and luxury daybed villa in tropical Bali jungle",
+        "url": "https://images.unsplash.com/photo-1675657144361-98ae33e6b6f9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwxfHxiYWxpJTIwbHV4dXJ5JTIwcmVzb3J0JTIwcG9vbHxlbnwwfHx8fDE3OTA3OTMxMjJ8MA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "bali_coastal_temple",
+        "description": "Iconic Tanah Lot tropical temple and blue ocean sky",
+        "url": "https://images.unsplash.com/photo-1604999333679-b86d54738315?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwxfHxiYWxpJTIwdGVtcGxlJTIwdHJvcGljYWwlMjBvY2VhbnxlbnwwfHx8fDE3OTA3OTMxMjJ8MA&ixlib=rb-4.1.0&q=85"
+      }
+    ]
+  },
+  "layout_and_grids": {
+    "max_width": "max-w-7xl (1280px)",
+    "container_padding": "px-4 sm:px-6 lg:px-8",
+    "hero_layout": "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[90vh] py-12 lg:py-16",
+    "hero_content_span": "lg:col-span-7 space-y-6 text-left",
+    "hero_form_span": "lg:col-span-5 relative z-20",
+    "trust_strip_layout": "w-full py-6 bg-[#EDF5FA] border-y border-[#D6E6F0] overflow-hidden",
+    "card_radius": "rounded-2xl sm:rounded-3xl",
+    "card_shadow": "shadow-[0_12px_40px_-15px_rgba(11,29,58,0.08)] border border-[#E2EBF0]"
+  },
+  "motion_and_interactions": {
+    "smooth_scroll": "Lenis momentum scroll enabled on window",
+    "hero_text_reveal": "Masked line-by-line reveal using Framer Motion with custom cubic bezier [0.16, 1, 0.3, 1]",
+    "parallax_effect": "Subtle Y-axis parallax on Bali background imagery and ambient floaters",
+    "button_hover": "Hover scale 1.02, active scale 0.98, golden radiance glow transition: box-shadow 0.25s ease, transform 0.2s ease",
+    "editorial_marquee": "Infinite smooth drift marquee for partner accreditations (IATA accredited, Bali Tourism Partner, 4.9/5 Google Rating, 12,000+ Happy Explorers, 100% Customized Itineraries)"
+  },
+  "form_architecture": {
+    "title": "Get Custom Bali Itinerary & Quote",
+    "subtitle": "Personalized luxury quote within 15 minutes • Best Price Guarantee",
+    "fields": [
+      {
+        "id": "full_name",
+        "name": "name",
+        "label": "Full Name",
+        "type": "text",
+        "placeholder": "e.g. Rahul Sharma",
+        "required": true,
+        "test_id": "lead-input-name"
+      },
+      {
+        "id": "mobile_number",
+        "name": "mobile",
+        "label": "Mobile Number (with WhatsApp)",
+        "type": "tel",
+        "placeholder": "+91 98765 43210",
+        "required": true,
+        "test_id": "lead-input-mobile"
+      },
+      {
+        "id": "email_address",
+        "name": "email",
+        "label": "Email Address",
+        "type": "email",
+        "placeholder": "rahul@example.com",
+        "required": true,
+        "test_id": "lead-input-email"
+      },
+      {
+        "id": "city",
+        "name": "city",
+        "label": "Departure City",
+        "type": "text",
+        "placeholder": "e.g. Mumbai, Delhi, Bangalore",
+        "required": true,
+        "test_id": "lead-input-city"
+      },
+      {
+        "id": "travelers",
+        "name": "travelers",
+        "label": "Number of Travelers",
+        "type": "select",
+        "options": ["Couple (2 Adults)", "Family (3-4 Persons)", "Small Group (5-8 Persons)", "Solo Traveler", "Corporate / 9+ Persons"],
+        "required": true,
+        "test_id": "lead-select-travelers"
+      },
+      {
+        "id": "travel_month",
+        "name": "travel_month",
+        "label": "Preferred Travel Month",
+        "type": "select",
+        "options": ["Next 30 Days (Urgent)", "September 2026", "October 2026", "November 2026", "December 2026 (Festive/New Year)", "January - March 2027", "Later / Exploring"],
+        "required": true,
+        "test_id": "lead-select-month"
+      }
+    ],
+    "cta_button": {
+      "text": "Get Instant Free Bali Quote",
+      "subtext": "🔒 100% Privacy Protected • No Spam Guarantee",
+      "test_id": "lead-form-submit-button"
+    }
+  },
+  "component_hierarchy": [
+    {
+      "name": "Header",
+      "path": "frontend/src/components/Header.tsx",
+      "description": "Sticky Crystal Glass header with FollowFoots brand footprint logo, quick navigation anchors (Highlights, Packages, Why Us, FAQs), WhatsApp quick-connect, and 'Enquire Now' warm gold CTA button"
+    },
+    {
+      "name": "HeroSection",
+      "path": "frontend/src/components/HeroSection.tsx",
+      "description": "Hero section featuring background high-res Bali photography, kinetic typography masked reveals, trust pill tags, instant credibility counters, and the embedded Lead Enquiry Card"
+    },
+    {
+      "name": "LeadForm",
+      "path": "frontend/src/components/LeadForm.tsx",
+      "description": "Luxury lead generation card with 6 input fields, validation, instant feedback states, Sonner toast confirmation, and direct booking perks checklist"
+    },
+    {
+      "name": "TrustStrip",
+      "path": "frontend/src/components/TrustStrip.tsx",
+      "description": "High-credibility trust bar with Google Reviews badge (4.9★ from 1,240+ reviews), IATA Member badge, 24/7 Bali Concierge, Private Villas, and Zero Cancellation Penalty options"
+    },
+    {
+      "name": "BaliHighlightsPreview",
+      "path": "frontend/src/components/BaliHighlightsPreview.tsx",
+      "description": "Editorial grid highlighting Ubud Private Villas, Nusa Penida Island Tours, Seminyak Sunset Lounges, and Uluwatu Cliffside Experiences"
+    },
+    {
+      "name": "Footer",
+      "path": "frontend/src/components/Footer.tsx",
+      "description": "Deep Navy luxury footer with destination information, office registration details, support hotlines, and copyright"
+    }
+  ],
+  "accessibility_and_compliance": {
+    "wcag_level": "WCAG AA (APCA contrast verified)",
+    "contrast_pairs": [
+      {"foreground": "#0B1D3A", "background": "#FFFFFF", "ratio": "13.6:1"},
+      {"foreground": "#4B5E78", "background": "#FFFFFF", "ratio": "5.4:1"},
+      {"foreground": "#FFFFFF", "background": "#D97706", "ratio": "4.6:1"},
+      {"foreground": "#0B1D3A", "background": "#EDF5FA", "ratio": "12.8:1"},
+      {"foreground": "#F8FAFC", "background": "#081326", "ratio": "16.1:1"}
+    ],
+    "reduced_motion": "Wrap framer-motion animations with prefers-reduced-motion media query fallback",
+    "data_testids": "All buttons, inputs, links, and key status badges have explicit kebab-case data-testid tags"
+  },
+  "instructions_to_main_agent": [
+    "1. Set up Tailwind v4 theme in frontend/src/index.css importing Lora Variable (headings) and Plus Jakarta Sans Variable (body) from @fontsource-variable.",
+    "2. Configure color tokens: base white (#FFFFFF), deep navy text (#0B1D3A), tropical teal accents (#008B8B), soft blue sections (#EDF5FA), and radiant gold primary CTA (#D97706 / #F59E0B).",
+    "3. Build the FollowFoots Vacation custom SVG Logo with the blue footprint motif and sleek modern typography.",
+    "4. Implement the split Hero Section with high-resolution Bali imagery, kinetic masked text reveals via motion/react, trust badges, and the 6-field Lead Generation Form.",
+    "5. Use Sonner for submission feedback and store lead inquiries locally or send to backend /api/leads endpoint.",
+    "6. Build the Trust Strip and Marquee Ribbon highlighting verified customer ratings, 24x7 on-trip concierge, and personalized Bali itineraries.",
+    "7. Ensure responsive layout (mobile-first), generous padding (p-6, p-8, p-12), rounded-2xl cards, and APCA compliant typography contrast."
+  ]
+}

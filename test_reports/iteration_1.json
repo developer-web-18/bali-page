@@ -1,0 +1,18 @@
+{
+  "summary": "Full end-to-end testing of Bali landing page hero + lead form. Backend: 6/6 pytest tests pass for /api/leads (CRUD, validation). Frontend: All hero elements render within 1440x800 viewport without scrolling, 4-field form works, submit shows success toast + resets, header enquiry dialog opens with modal-prefixed form and submits successfully, hero CTA focuses lead-mobile, floating CTA appears after >120px scroll on desktop, mobile sticky bar visible on 390x844 with floating CTA hidden. No bugs found.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": ["/app/backend/tests/test_leads.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "WHATSAPP_LINK has empty number so wa.me href is https://wa.me/?text=... (no phone). Confirmed intentional per agent note, but should be populated before production.",
+    "Backend has no rate limiting on POST /api/leads — public endpoint can be spammed. Consider adding basic rate limit or captcha before launch.",
+    "Backend LeadCreate has no phone-format validation beyond min_length=8; consider regex validation to filter garbage submissions."
+  ],
+  "updated_files": ["/app/backend/tests/test_leads.py"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "Created 2 TEST_-prefixed leads (TEST_Delhi, TEST_Mumbai) via automated tests.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Backend tests live at /app/backend/tests/test_leads.py. Use REACT_APP_BACKEND_URL or default preview URL. Base UI Select requires clicking SelectTrigger then option with data-testid *-month-option / *-travelers-option, with force=True. Lenis smooth scroll: use page.evaluate('window.scrollTo(...)') and wait ~1200ms. Focus check on hero CTA works after ~1200ms delay (700ms setTimeout in focusLeadForm)."
+}

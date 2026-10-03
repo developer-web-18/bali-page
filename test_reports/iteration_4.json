@@ -1,0 +1,32 @@
+{
+  "summary": "Frontend-only testing of the 3 new sections (Experiences, Itinerary, Why Us) on FollowFoots Bali landing page. All functional/layout/CTA/lead-persistence requirements verified at 1440px and 390px. 2 leads successfully stored via modal (Custom Bali Itinerary + Custom Bali Trip). Header nav scroll works for experiences/itinerary/why-us. No fake stats/ratings/prices in new sections. No console errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verified_items": {
+    "experiences_section": "Heading 'Unforgettable Bali Experiences' present; 6 cards (Nusa Penida, Ubud, Uluwatu Sunset, Water Sports, Mount Batur, Seminyak) with 6 unique image URLs; 3-col at 1440px, 2-col at 390px; build-itinerary-btn opens modal with title 'Build Your Custom Bali Itinerary'; form submit persisted lead with package='Custom Bali Itinerary' (verified via GET /api/leads).",
+    "itinerary_section": "Heading 'Sample Bali Itinerary' with '6 Days / 5 Nights' highlighted; 6 days with correct titles (Arrival in Bali / Uluwatu & Sunset / Nusa Penida Island / Ubud & Rice Terraces / Water Sports & Leisure / Departure), Day N label, image, location and 2-4 bullets each; single row at 1440px (xl:grid-cols-6, same y for day-1 and day-6); vertical stack with left timeline line on 390px; both itinerary-customise-btn and itinerary-create-custom-btn open modal titled 'Build Your Custom Bali Itinerary'.",
+    "why_section": "Heading 'Why FollowFoots for Your Bali Trip?' present; why-trust-card shows 'Your Holiday. Your Way.'; 6 benefits with labels Customised Itineraries / Flights + Hotels / Private Transfers / Visa Assistance / Transparent Pricing / Travel Support (rendered uppercase via CSS); trust message present; image left + content right at 1440px, image above heading at 390px; why-plan-trip-btn opens modal titled 'Get Your Custom Bali Quote'; submit persisted lead with package='Custom Bali Trip' (verified via GET /api/leads).",
+    "header_nav": "header-nav-experiences / header-nav-itinerary / header-nav-why-us all scroll target section into viewport (section.y between -50 and 300 after click).",
+    "no_fake_stats": "No ₹, ★, % figures or 'reviews' strings in the 3 new sections.",
+    "console": "No console errors across desktop and mobile scrolling."
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "WHATSAPP_NUMBER in /app/frontend/src/lib/constants.ts is intentionally empty — WHATSAPP_LINK resolves to 'https://wa.me/?text=...' which opens wa.me landing page. Confirmed intentional per request but worth flagging for production.",
+    "ItinerarySection uses `motion.li` as the day root AND renders inner `<ul><li>` bullets; semantically fine but any `li` descendant count queries need to account for parent.",
+    "Benefit labels in WhySection use CSS `uppercase` — if automated string-match tests are written, prefer case-insensitive comparison."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (not re-tested)", "frontend": "100% (all functional, layout, CTA, modal, lead-persistence, nav, mobile responsive checks passed)"},
+  "test_credentials": "none",
+  "seed_data_creation": "Created 2 test leads via modal submissions (Test User / Custom Bali Itinerary, Test WhyUser / Custom Bali Trip).",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All 3 new sections (ExperiencesSection, ItinerarySection, WhySection) and header nav work correctly on desktop (1440) and mobile (390). EnquiryDialog TITLES map correctly routes CUSTOM_PACKAGE->'Get Your Custom Bali Quote' and CUSTOM_ITINERARY->'Build Your Custom Bali Itinerary'. Hero LeadForm uses idPrefix='lead' (testids: lead-input-name, lead-form-submit-button). Modal uses idPrefix='modal'. Base UI selects: click [data-testid=modal-select-month] then first [data-testid=modal-month-option] with force=True.",
+  "rca of the issue": "No issues found."
+}

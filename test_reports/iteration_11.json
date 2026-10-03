@@ -1,0 +1,45 @@
+{
+  "summary": "Executed backend+frontend regression for final polish scope: travel_style persistence/validation, OTP lifecycle with in-process provider mocking, responsive form behavior across required widths, itinerary/final CTA/footer integration checks.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Hero Lead Form",
+        "issue": "At 1920px, Number of Travellers control and Travel Style radio row are not vertically aligned (measured ~12.5px y-offset) despite both being in same row.",
+        "selector": "[data-testid='lead-select-travelers'], [data-testid='lead-travel-style-group']",
+        "priority": "MEDIUM"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_travel_style_mocked_provider.py",
+    "/app/backend/tests/test_otp_lifecycle_mocked_provider.py",
+    "/app/test_reports/pytest/pytest_results_iter11_backend.xml"
+  ],
+  "action_items": [
+    "Adjust hero desktop (1920) alignment so travellers input and travel-style radio row align exactly per final polish spec.",
+    "Optionally normalize legacy backend tests (outside this task scope) to remove hardcoded BACKEND_URL fallback patterns."
+  ],
+  "critical_code_review_comments": [
+    "Requested backend travel_style contract is correctly implemented in routes/leads.py (optional Literal field + PUBLIC_FIELDS exposure + backward-compatible list serialization).",
+    "Older unrelated tests still use URL fallbacks/hardcoded defaults; keep an eye on env-only URL policy in future cleanup."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_travel_style_mocked_provider.py",
+    "/app/test_reports/iteration_11.json"
+  ],
+  "success_rate": {
+    "backend": "100% (18/18)",
+    "frontend": "96% (all requested flows passed except one strict desktop alignment check)"
+  },
+  "seed_data_creation": "Created scoped QA Mongo records prefixed TEST_QA_TRAVEL_STYLE_ and TEST_QA_OTP_MOCKED_; cleaned via fixtures.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Frontend was tested with segmented Playwright scripts at widths 320/390/640/768/1024/1440/1920. Payload checks used TEST-ONLY route interception (no live sends) and validated travel_style null/Luxury/Budget plus source/package mapping for hero, dynamic package popup, and both itinerary CTAs. Footer nav links were rechecked with per-click re-scroll and passed. One remaining issue: 1920 hero traveler vs travel-style vertical alignment offset.",
+  "rca of the issue": "RCA (frontend alignment): both controls are in the same grid row and both heights are 44px, but the computed top positions differ at 1920 by ~12.5px, indicating row-end alignment with differing internal field content/label baseline behavior. Reproduction: open homepage at 1920 width and compare bounding top of [lead-select-travelers] vs [lead-travel-style-group]."
+}

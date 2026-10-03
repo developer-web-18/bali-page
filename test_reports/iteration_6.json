@@ -1,0 +1,21 @@
+{
+  "summary": "Frontend-only verification of new ReviewsSection + updated contact details. All acceptance criteria pass. (1) DOM order why-us(top=7123) < reviews(7994) < faqs(8718). Heading = 'Trusted by Travellers'; subheading matches. Trustindex widget renders after user activity (document.querySelectorAll('.ti-widget').length = 1, '.ti-review-item' count = 10). No hardcoded '4.8'/'reviews' text in own markup outside .ti-widget. No horizontal overflow at 390/768 (scrollWidth == clientWidth). reviews-quote-btn opens modal titled 'Get Your Custom Bali Quote' and submitting stores a lead with package 'Custom Bali Trip' (verified via GET /api/leads — id f6e20dcc-8bff-4a41-b672-e0a51b359866). (2) All contact details correct: 4 wa.me anchors (lead-whatsapp-cta, final-cta-whatsapp-btn, footer-whatsapp, mobile-bar-whatsapp-btn) start with 'https://wa.me/919910808505'; footer-phone href=tel:+919910808505 text '+91 9910808505'; footer-email href=mailto:followfoots@gmail.com text 'followfoots@gmail.com'; footer-social-instagram=https://instagram.com/followfoots; footer-social-facebook=https://www.facebook.com/FollowFootsPVTLTD. Body contains no '[Add' placeholders and no other 10-digit phone numbers besides 9910808505. Regressions: hero form submits & lead stored (id 0d5fedc1), header-nav-faqs scrolls to FAQ section, accordion remains single-open (opened_count=1). No console errors besides a non-blocking 404 for a third-party asset.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/test_reports/iteration_6.json"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Observation (not a bug): After the Trustindex loader runs it removes/replaces its own <script src='.../loader.js...'> tag, so document.querySelectorAll(\"script[src*='trustindex.io/loader.js']\").length is 0 after render. The useEffect guard in ReviewsSection.tsx uses document.querySelector(`script[src=\"${TRUSTINDEX_SRC}\"]`) to prevent duplicate injection. Since the script tag disappears, a React re-render could potentially re-inject the loader. Not reproduced in practice (React 18 StrictMode did not duplicate the widget), but consider using a module-level boolean flag (hasInjectedTrustindex) in addition to the DOM check for robustness."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a", "frontend": "100%"},
+  "test_credentials": "n/a",
+  "seed_data_creation": "Created 2 leads via UI: 'Review Tester' from reviews-quote-btn modal (id f6e20dcc-8bff-4a41-b672-e0a51b359866, package 'Custom Bali Trip') and 'Hero Regression Tester' from hero form (id 0d5fedc1-d1dc-494c-990b-f3365d148c4d, package 'Custom Bali Trip').",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Trustindex is third-party and lazy-loads on real user activity (mouse.move + mouse.wheel). Use page.goto(url, wait_until='load') — networkidle will timeout because Trustindex keeps connections open. After scrollIntoView + a few mouse.wheel ticks + wait ~5s, '.ti-widget' and '.ti-review-item' nodes appear. The loader <script> tag self-removes after execution, so count==0 is expected and not a bug. Reviews-section CTA testid: reviews-quote-btn opens EnquiryDialog (title 'Get Your Custom Bali Quote', package 'Custom Bali Trip')."
+}

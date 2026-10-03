@@ -1,0 +1,56 @@
+.itinerary-timeline {
+  --timeline-gap: 20px;
+}
+
+.itinerary-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.itinerary-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 40px;
+  bottom: -24px;
+  width: 1px;
+  background: rgb(0 139 139 / 30%);
+}
+
+.itinerary-marker {
+  position: absolute;
+  left: -44px;
+  top: 0;
+}
+
+@media (min-width: 768px) {
+  .itinerary-marker {
+    position: relative;
+    top: auto;
+    left: auto;
+    height: 36px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+
+  .itinerary-step:not(:last-child)::after {
+    left: 44px;
+    right: calc(8px - var(--timeline-gap));
+    top: 18px;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  .itinerary-step:nth-child(3n)::after {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .itinerary-step:nth-child(3n):not(:last-child)::after {
+    display: block;
+  }
+}

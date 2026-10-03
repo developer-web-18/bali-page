@@ -1,0 +1,19 @@
+{
+  "summary": "Main-agent follow-up resolves the reported desktop row offset: both controls have identical bounding boxes vertically when measured atomically after fonts and entrance animations settle. No layout code change was necessary.",
+  "reported_issue": "iteration_11.json reported approximately 12.5px between traveller select and Travel Style group at 1920px.",
+  "verification": {
+    "desktop_viewport": {"width": 1920, "height": 800},
+    "hero": {"traveller_y": 462.484375, "travel_style_y": 462.484375, "height_each": 44, "width_each": 208.328125, "label_wrapper_y_each": 440.484375, "wrapper_height_each": 66, "repeated_atomic_checks_passed": 3},
+    "popup": {"traveller_y": 448.625, "travel_style_y": 448.625, "height_each": 44, "width_each": 286, "label_wrapper_y_each": 426.625, "wrapper_height_each": 66},
+    "mobile_viewport": {"width": 390, "height": 844},
+    "mobile": "Screenshot confirms single-column fields, horizontal optional radios, correctly sized CTA. Final CTA screenshot confirms heading padding, both stacked buttons, trust points and original bright photo.",
+    "document_horizontal_overflow": false,
+    "affected_area_overflow": [],
+    "console_artifact": "/root/.emergent/automation_output/20261003_084551/console_20261003_084551.log"
+  },
+  "interpretation": "The original offset was not reproducible with simultaneous measurements. Separate geometry reads during the existing entrance animation can report apparent displacement; wait for settled layout and collect both rectangles in one evaluate call.",
+  "backend": "18/18 tests pass per iteration_11.json; application provider/OTP logic unchanged.",
+  "mocking": "Provider transport and browser OTP responses MOCKED IN TESTS ONLY. Application integrations remain real; live WhatsApp delivery was not re-tested.",
+  "outstanding_defects": [],
+  "retest_needed": false
+}

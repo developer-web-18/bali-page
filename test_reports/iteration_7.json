@@ -1,0 +1,26 @@
+{
+  "summary": "Frontend-only verification of the rebuilt Popular Bali Holiday Packages section. All 6 cards render with correct badges, titles, durations, stay strings, inclusion chip counts (0:4, 1:5, 2:5, 3:6, 4:6, 5:6), struck/discounted prices and savings exactly as specified; 'per person' present on every card; no 'per family' and no '₹XX,XXX' placeholders. 'Without Flight' / 'Flights Included' flight labels correct on all cards. Carousel behavior verified on package-0: 5 imgs, 5 dots, prev disabled at idx 0, next → translateX(-100%), dot-3 → translateX(-300%), extra next at last stays at -400% and next is disabled, no autoplay (transform unchanged after 4.2s), carousel height constant between slides (242.08px). All 30 carousel images loaded (naturalWidth>0, zero broken). Mobile swipe at 390px: pointer drag left >40px → index advances (track -100%); drag right → back to 0%. GET QUOTE flows: package-quote-btn-1 opened modal titled 'Get a Quote for Bali Relax & Explore'; submission created lead with package='Bali Relax & Explore' (verified via GET /api/leads, name 'Pkg Tester'). package-quote-btn-5 → 'Get a Quote for Bali Beach & Ubud Holiday'. packages-custom-quote-btn → 'Get Your Custom Bali Quote'. Responsive: 1440px → 3-per-row with equal heights (553.58px row1, 584.08px row2); 390px → 1-per-row full width, horizontal overflow = 0. Regression: header-nav-packages scrolls to section (scrollY=952). experiences/itinerary/reviews/faqs sections present. No blocking console errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Packages @ 1024px viewport", "issues": ["Grid shows 3 cards per row at 1024px (Tailwind lg: breakpoint is >=1024px), but spec expected 2 per row at 1024px. All 3 cards in group-without-flight share y=468.53 at width=1024. If the intent is 2-per-row below the full desktop size, change the breakpoint to e.g. `md:grid-cols-2 xl:grid-cols-3` (xl=1280) in PackagesSection.tsx group grid. Below 1024px (<=1023) 2-per-row works correctly via md:grid-cols-2."]}
+    ]
+  },
+  "test_report_links": ["/app/test_reports/iteration_7.json"],
+  "action_items": [
+    "Decide 1024px behaviour: if spec requires 2-per-row at exactly 1024px, change `lg:grid-cols-3` to `xl:grid-cols-3` on the grid in PackagesSection.tsx (line 237). Otherwise clarify spec — current behaviour is standard Tailwind lg breakpoint."
+  ],
+  "critical_code_review_comments": [
+    "ImageCarousel pointer handlers set startX on pointerdown but pointerup only fires on the same element; on fast swipes where the pointer leaves the carousel, the gesture may be ignored. Consider using setPointerCapture(e.pointerId) in onPointerDown for more reliable mobile swipe tracking.",
+    "ImageCarousel key={src} on both <img> and dot <button> — if any package later reuses the same image URL in its list, React will warn about duplicate keys. Prefer key={`${testId}-${i}`} or key={i}."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (verified only GET /api/leads)", "frontend": "~95% (1 minor responsive deviation at 1024px)"},
+  "test_credentials": "n/a",
+  "seed_data_creation": "Created 1 lead via UI: 'Pkg Tester' / mobile +91 98765 43210 / city Delhi / package 'Bali Relax & Explore' from package-quote-btn-1 modal — verified as newest lead via GET /api/leads.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "PackagesSection: 6 cards indexed 0-5. Modal LeadForm uses idPrefix='modal' so field testids are modal-input-name/mobile/city, modal-select-month, modal-select-travelers, modal-form-submit-button. Badge/flight-label/saving/duration text uses CSS text-transform:uppercase — compare case-insensitively when asserting. Grid breakpoints: md:grid-cols-2 (>=768), lg:grid-cols-3 (>=1024). Carousel transition is 500ms — wait ~700ms after clicks. Autoplay is intentionally absent. All image URLs in constants.ts IMAGES currently return HTTP 200 / naturalWidth > 0."
+}
